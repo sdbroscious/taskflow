@@ -50,37 +50,60 @@ TaskFlow is a simple task management application inspired by Todoist, built with
 
 ## Running the Application
 
-1. Start the development server:
+1. Initialize the database:
+   ```bash
+   flask db upgrade
+   python init_db.py  # Optional: adds sample data
+   ```
+
+2. Start the development server:
    ```bash
    flask run
    ```
 
-2. Open your browser and navigate to `http://127.0.0.1:5000/`
+3. Open your browser and navigate to `http://localhost:5000`
+
+## Running Tests
+
+1. Install test dependencies:
+   ```bash
+   pip install -r requirements-test.txt
+   ```
+
+2. Run the test suite:
+   ```bash
+   pytest
+   ```
+
+3. Run with coverage report:
+   ```bash
+   pytest --cov=app tests/
+   ```
 
 ## Project Structure
 
 ```
 taskflow/
-├── app/
-│   ├── __init__.py         # Application factory
-│   ├── models.py           # Database models
-│   ├── auth/               # Authentication blueprint
-│   │   ├── __init__.py
-│   │   └── forms.py
-│   ├── main/               # Main application blueprint
-│   │   ├── __init__.py
-│   │   └── forms.py
-│   ├── static/             # Static files (CSS, JS, images)
-│   │   ├── css/
-│   │   └── js/
-│   └── templates/          # HTML templates
-│       ├── auth/
-│       ├── base.html
-│       └── main/
-├── migrations/             # Database migrations
-├── config.py               # Configuration
-├── requirements.txt        # Dependencies
-└── run.py                  # Application entry point
+├── app/                  # Application package
+│   ├── __init__.py      # App initialization
+│   ├── auth/            # Authentication blueprint
+│   ├── main/            # Main blueprint (tasks, projects)
+│   ├── models.py        # Database models
+│   ├── static/          # Static files (CSS, JS)
+│   └── templates/       # Jinja2 templates
+├── migrations/          # Database migrations
+├── instance/            # Instance-specific config
+├── tests/               # Test suite
+│   ├── conftest.py      # Test fixtures and configuration
+│   ├── factories.py     # Factory Boy model factories
+│   ├── main/            # Tests for main blueprint
+│   │   └── test_views.py # View function tests
+│   └── test_models.py   # Model tests
+├── .flaskenv            # Flask environment variables
+├── requirements.txt     # Project dependencies
+├── requirements-test.txt # Test dependencies
+├── pytest.ini          # Pytest configuration
+└── run.py               # Application entry point
 ```
 
 ## Contributing
