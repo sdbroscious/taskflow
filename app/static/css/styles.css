@@ -1,0 +1,82 @@
+/* Custom styles for TaskFlow */
+
+/* Task priority indicators */
+.priority-high {
+    @apply border-l-4 border-red-500;
+}
+
+.priority-medium {
+    @apply border-l-4 border-yellow-500;
+}
+
+.priority-low {
+    @apply border-l-4 border-blue-500;
+}
+
+/* Task item hover effect */
+.task-item:hover {
+    @apply bg-gray-50;
+}
+
+/* Smooth transitions */
+.task-checkbox {
+    transition: all 0.2s ease-in-out;
+}
+
+/* Custom scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-gray-100 rounded-full;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-gray-400 rounded-full;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-500;
+}
+
+/* Animation for task completion */
+@keyframes fadeOut {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(-10px); }
+}
+
+.task-complete {
+    animation: fadeOut 0.3s ease-out forwards;
+}
+
+/* Loading spinner */
+.spinner {
+    @apply animate-spin rounded-full h-5 w-5 border-b-2 border-indigo-600;
+}
+
+/* Custom focus styles */
+.focus-indigo {
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500;
+}
+
+/* Button hover effects */
+.btn-hover {
+    @apply transition duration-150 ease-in-out transform hover:-translate-y-0.5;
+}
+
+/* Form input focus */
+.input-focus {
+    @apply focus:ring-indigo-500 focus:border-indigo-500;
+}
+
+/* Task card styles */
+.task-card {
+    @apply bg-white rounded-lg shadow overflow-hidden;
+}
+
+/* Subtle shadow on hover for cards */
+.hover-shadow {
+    @apply transition-shadow duration-200 ease-in-out hover:shadow-md;
+}
