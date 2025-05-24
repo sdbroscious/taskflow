@@ -22,10 +22,13 @@ def run_app():
     
     # Run the application
     host = os.environ.get('FLASK_RUN_HOST', '0.0.0.0')
-    port = int(os.environ.get('FLASK_RUN_PORT', 5000))
+    port = int(os.environ.get('FLASK_RUN_PORT', 8080))  # Using port 8080 to avoid conflicts with macOS AirPlay
     debug = os.environ.get('FLASK_DEBUG', 'true').lower() in ('true', '1', 't')
     
     app.run(host=host, port=port, debug=debug)
+
+# Create the app instance for shell context
+app = create_app()
 
 # Shell context for Flask shell command
 @app.shell_context_processor
